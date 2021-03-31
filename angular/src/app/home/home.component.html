@@ -1,0 +1,28 @@
+<app-header currentMenu="home"></app-header>
+<div id="content">
+    <p>{{username}}</p>
+  <input type="text" (click)="pushMessage()" value="CLick me to push message"/>
+    <!-- begin featured -->
+  <!-- <div id="featured">
+    
+  </div> -->
+  <!-- end featured -->
+  <div  *ngFor="let post of posts " class="post"> <a href="http://all-free-download.com/free-website-templates/"><img src="../../assets/images/_thumb.jpg" alt="" /></a>
+    <h2><a href="http://all-free-download.com/free-website-templates/">{{post.title}}</a></h2>
+    <p>{{post.content}}</p>
+    <p>{{post.num  | power}}</p>
+    <p class="details"><a href="http://all-free-download.com/free-website-templates/">Entertainment</a> | {{post.date | date: 'medium'}} <a href="http://all-free-download.com/free-website-templates/">12 Comments</a></p>
+    <div class="break"></div>
+    <div>{{post.price | currency:'INR'}}</div>
+    <div (click)="updateService()">Update service</div>
+  </div>
+  <input type="text" [(ngModel)]="inputTxt" />
+  <div  *ngFor="let detail of personDetail | filter : inputTxt " class="post"> 
+    {{detail.name}}-{{detail.city}}
+  </div>
+  
+  <!-- end post -->
+
+
+
+</div>

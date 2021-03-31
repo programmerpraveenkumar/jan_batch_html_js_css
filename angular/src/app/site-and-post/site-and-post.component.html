@@ -1,0 +1,86 @@
+<div id="sidebar">
+    <!-- begin site sponsors -->
+    <div class="box">
+      <button (click)="sendToAppcomponent()">to parent function..</button>
+      <h2>Site Sponsors</h2>
+      <p class="ads"> <a href="http://all-free-download.com/free-website-templates/"><img src="images/ad125x125.jpg" alt="" /></a> <a href="http://all-free-download.com/free-website-templates/"><img src="images/ad125x125.jpg" alt="" /></a> <a href="http://all-free-download.com/free-website-templates/"><img src="images/ad125x125.jpg" alt="" /></a> <a href="http://all-free-download.com/free-website-templates/"><img src="images/ad125x125.jpg" alt="" /></a> </p>
+    </div>
+    <!-- end site sponsors -->
+    <!-- begin popular posts -->
+    <div class="box">
+      <h2>Popular Posts</h2>
+      <ul class="popular">
+        <li *ngFor="let post of posts">
+           <a href="#">{{post.title}}</a>
+          <p>{{post.content}}</p>
+        </li>
+        
+      </ul>
+    </div>
+    <!-- end popular posts -->
+    <!-- begin flickr photos -->
+    <div class="box">
+      <h2>Flickr Photos</h2>
+      <p class="flickr"> <a href="http://all-free-download.com/free-website-templates/"><img src="images/_flickr.jpg" alt="" /></a> <a href="http://all-free-download.com/free-website-templates/"><img src="images/_flickr.jpg" alt="" /></a> <a href="http://all-free-download.com/free-website-templates/"><img src="images/_flickr.jpg" alt="" /></a> <a href="http://all-free-download.com/free-website-templates/"><img src="images/_flickr.jpg" alt="" /></a> <a href="http://all-free-download.com/free-website-templates/"><img src="images/_flickr.jpg" alt="" /></a> <a href="http://all-free-download.com/free-website-templates/"><img src="images/_flickr.jpg" alt="" /></a> </p>
+    </div>
+    <!-- end flickr photos -->
+    <!-- begin featured video -->
+    <div class="box">
+      <h2>Featured Video</h2>
+      <div class="video"> <img src="images/_video.jpg" alt="" /> </div>
+    </div>
+    <!-- end featured video -->
+    <!-- begin search -->
+    <form action="http://all-free-download.com/free-website-templates/">
+      <input type="text" name="s" id="s" value="" />
+      <button type="submit">Search</button>
+    </form>
+    <!-- end search -->
+    <div class="span box">
+      <!-- begin left -->
+      <div class="l">
+        <!-- begin pages -->
+        <h2>Pages</h2>
+        <ul>
+          <li><a href="http://all-free-download.com/free-website-templates/">About</a></li>
+          <li><a href="http://all-free-download.com/free-website-templates/">Archives</a></li>
+          <li><a href="http://all-free-download.com/free-website-templates/">Contact</a></li>
+          <li><a href="http://all-free-download.com/free-website-templates/">Links</a></li>
+        </ul>
+        <!-- end pages -->
+        <!-- begin categories -->
+        <h2>Categories</h2>
+        <ul>
+          <li><a href="http://all-free-download.com/free-website-templates/">Advertising</a></li>
+          <li><a href="http://all-free-download.com/free-website-templates/">Fashion</a></li>
+          <li><a href="http://all-free-download.com/free-website-templates/">Gadgets</a></li>
+          <li><a href="http://all-free-download.com/free-website-templates/">Lifestyle</a></li>
+          <li><a href="http://all-free-download.com/free-website-templates/">Networking</a></li>
+          <li><a href="http://all-free-download.com/free-website-templates/">News</a></li>
+          <li><a href="http://all-free-download.com/free-website-templates/">Sports</a></li>
+        </ul>
+        <!-- end categories -->
+      </div>
+      <!-- end left -->
+      <!-- begin right -->
+      <div class="r">
+        <!-- begin blogroll -->
+        <h2>Blogroll</h2>
+        <ul>
+          <li><a href="http://all-free-download.com/free-website-templates/">Documentation</a></li>
+          <li><a href="http://all-free-download.com/free-website-templates/">Suggest Ideas</a></li>
+          <li><a href="http://all-free-download.com/free-website-templates/">Support Forum</a></li>
+        </ul>
+        <!-- end blogroll -->
+        <!-- begin meta -->
+        <h2>Meta</h2>
+        <ul>
+          <li><a href="http://all-free-download.com/free-website-templates/">Log in</a></li>
+          <li><a href="http://all-free-download.com/free-website-templates/">Valid XHTML</a></li>
+        </ul>
+        <!-- end meta -->
+      </div>
+      <!-- end right -->
+      <div class="break"></div>
+    </div>
+  </div>

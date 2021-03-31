@@ -1,0 +1,56 @@
+<html>
+<head>
+    <script type="text/javascript">
+        function ajax_call(){
+            //creating http object for ajax call
+            var xhttp = new XMLHttpRequest();
+            //inner function for handling the server response
+            xhttp.onreadystatechange = function() {
+                //if readystate is 4 and status is 200 .adding the response in div
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("server_response").innerHTML = this.responseText;
+                }
+            };
+            //adding server addres and method type 
+            xhttp.open("GET", "http://localhost/sub/index.php?name=test", true);
+                //trigger the ajax with abve server config...
+            xhttp.send();
+        }
+
+        function method_sample(){
+
+        }
+
+        
+    </script>
+</head>
+<body>
+
+        <!-- 
+
+            get -> query params will be visible in url
+                ->min char will be sent.
+                
+            POST->query params wont be visible
+                ->file or bulk data can be sent.
+         -->
+        <form action="http://localhost/sub/index.php" method="GET">
+            <input type="text" name="name" placeholder="Enter Name"/>
+            <input type="text" name="age" placeholder="Enter Age"/>
+            <input type="submit" value="Submit the Form"/>
+        </form>
+
+        <form action="http://localhost/sub/index_post.php" method="POST">
+            <input type="text" name="name" placeholder="Enter Name"/>
+            <!-- <input type="text" name="age" placeholder="Enter Age"/> -->
+            <input type="submit" value="Submit the Form"/>
+        </form>
+
+        <form>
+            <input type="text" name="name" placeholder="Enter Name"/>
+            <input type="button" onclick="ajax_call()" value="Submit the Form via AJAX"/>
+        </form>
+        <div id="server_response"></div>
+    </body>
+    
+</html>

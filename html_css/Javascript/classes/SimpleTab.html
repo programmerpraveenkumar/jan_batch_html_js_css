@@ -1,0 +1,87 @@
+<html>
+    <script type="text/javascript">
+//         function addclass(){
+//             var div_obj = document.getElementById("content");
+//             div_obj.classList.add("active")   ;
+//         }
+//         function removeClass(){
+//             var div_obj = document.getElementById("content");
+//             div_obj.classList.remove("active")   ;
+//         }
+// function toogleClass(){
+//     var div_obj = document.getElementById("content");
+//      var existClass = div_obj.classList.value;
+//      console.log(existClass.indexOf("active"));
+//      if(existClass.indexOf("active") >= 0){
+//         removeClass();
+//      }else{
+//          addclass();
+//      }
+// }
+function selectTab(tabType){
+    var div_obj = document.getElementById("tab-content");
+    div_obj.classList.remove("tab1","tab2","tab3");
+    var menuObj = document.getElementById("menu");
+    menuObj.classList.remove("tab1","tab2","tab3");
+
+    switch(tabType){
+        case 1:
+            div_obj.classList.add("tab1");
+            menuObj.classList.add("tab1");
+        break;
+        case 2:
+            div_obj.classList.add("tab2");
+            menuObj.classList.add("tab2");
+        break;
+        case 3:
+            div_obj.classList.add("tab3");
+            menuObj.classList.add("tab3");
+        break;
+    }
+    
+}
+    </script>
+    <style type="text/css">
+    #tab-content div{
+        display: none;
+    }
+    #tab-content.tab1 .tab1{
+        display: block;
+    }
+    #tab-content.tab2 .tab2{
+        display: block;
+    }
+    #tab-content.tab3 .tab3{
+        display: block;
+    }
+    ul li {
+        display: inline;
+        background: red;
+        color: #fff;
+        padding: 10px;
+        cursor: pointer;
+    }
+    ul.tab1 .tab1{
+        background-color: green;
+    }
+    ul.tab2 .tab2{
+        background-color: green;
+    }
+    ul.tab3 .tab3{
+        background-color: green;   
+    }
+    </style>
+    <body>
+        <ul class="tab1" id="menu">
+            <li  class="tab1" onclick="selectTab(1)">Tab1</li>
+            <li  class="tab2" onclick="selectTab(2)"> Tab2</li>
+            <li  class="tab3" onclick="selectTab(3)">Tab3</li>
+        </ul>
+        <div class="tab1" id="tab-content">
+
+            <div class="tab1">Tab 1 content</div>
+            <div  class="tab2">Tab 2 content</div>
+            <div  class="tab3">Tab 3 content</div>
+        </div>
+    </body>
+</html>

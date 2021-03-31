@@ -1,0 +1,50 @@
+<html>
+    <!--html->div,span,p...
+val->input,select,radio,checkbox,button
+
+html()->to access value
+html('some param')->inject the value
+
+val()->to get values of input elements
+val('some param')->inject value in input elements  -->
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script type="text/javascript">
+            function validate_form(type){
+                if(type == "login"){
+                    var login_form_obj = $("#login");
+                        var name = login_form_obj.find(".name").val();
+                        var email = login_form_obj.find(".email").val();
+                        console.log("login ",name,email);
+                }else if(type == "register"){
+                    var register_form_obj = $("#register");
+                    var name = register_form_obj.find(".name").val();
+                    var email = register_form_obj.find(".email").val();
+                    console.log("register ",name,email);
+                }
+
+            }
+        </script>
+        <style type="text/css">
+       
+        </style>
+
+    </head>
+    <body>
+        <div id="content">Sample content</div>
+        <form id="login">
+            <h1>Login</h1>
+            <input type="text" name="name" class="name" placeholder="enter name"/>
+            <input type="text" class="email" name="email" placeholder="enter email"/>
+            <input type="button" onclick="validate_form('login')" value="Submit Login"/>
+            <p>Error:</p>
+        </form>
+        <form id="register">
+            <h1>Register</h1>
+            <input type="text" name="name" class="name" placeholder="enter name"/>
+            <input type="text" class="email" name="email" placeholder="enter email"/>
+            <input type="button" onclick="validate_form('register')" value="Submit Register"/>
+            <p>Error:</p>
+        </form>
+    </body>
+</html>

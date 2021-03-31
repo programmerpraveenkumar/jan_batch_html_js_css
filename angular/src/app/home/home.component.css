@@ -1,0 +1,17 @@
+.red{
+    background-color: red;
+}
+.blue{
+    background-color: blue;
+}
+.brown{
+    background-color: brown;
+}
+.login_wrapper{
+    background-color: red;;
+    color: #fff;
+}
+.login_wrapper.login{
+    background-color: chartreuse;
+    color: #000;
+}

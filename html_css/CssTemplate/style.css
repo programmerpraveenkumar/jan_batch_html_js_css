@@ -1,0 +1,101 @@
+header{
+    background-color: #052501;
+    position: relative;
+    padding-bottom: 50px;
+    z-index: 1;
+   }
+   
+   .container .top-menu .navbar .nav-link{
+       color: #fff;;
+   }
+   .container .top-menu .navbar .nav-item{
+       padding: 10px 50px;
+   }
+   .container  .top-menu .navbar .nav-link:hover{
+       color: #b8b1b1; 
+   }
+   .black-bg{
+      
+       color: #fff;
+       position: absolute;
+       top: 80px;
+       right: 15%;
+       left: 12%;
+   }
+   .black-bg > div{
+       background-color: #000;
+   }
+   .black-bg::before{
+   content: " ";
+   background-image: url('./images/wfe4.png');
+   width: 44px;;
+   height: 69px;;
+   }
+   .container .black-bg .navbar .nav-link{
+       color: #fff;
+   }
+   .container .black-bg  .input-group {
+       margin-top: 10px;
+   }
+   .black-bg .navbar{
+       float: right;
+   }
+   .black-bg .col-8{
+       max-width: 60%;
+   }
+   .black-bg .navbar li{
+       margin: 0 25px;
+   }
+   .container .black-bg .navbar .nav-link:hover{
+       color: brown;
+   }
+   .slider{
+       position: relative;
+   }
+   .slider img{
+       width: 100%;
+       height: 450px;
+   } 
+   .green-color{
+       color: #7fff00;
+   }
+   .slider .content{
+           position: absolute;
+           top:50px;
+           left:150px;
+           color: #fff;
+           width:70%;
+   }
+   .slider .btn-primary{
+       color: #000;
+       background-color: #fff;
+       border: none;
+       padding: 10px 30px;
+   }
+   .slider .btn-primary:hover{
+       background-color: chartreuse;
+   }
+   .about-wrapper {
+    margin-top: 5%;
+   }
+   .about-wrapper p{
+    line-height: 30px;
+   }
+   .about-wrapper .second-title{
+    border-bottom: 1px solid #7fff00;
+   }
+   .about-wrapper img {
+    width: 100%;
+   }
+   .about-wrapper .read-more-wrapper input{
+    background-color:#2f550b;
+    padding: 10px 50px;
+    border-radius: 13px;
+    border: none;
+   }
+   .about-wrapper .read-more-wrapper input:hover{
+    background-color:#7fff00;
+    padding: 10px 50px;
+    border-radius: 13px;
+    border: none;
+   }

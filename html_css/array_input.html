@@ -1,0 +1,77 @@
+<html>
+<head>
+    <style type="text/css">
+        .content_wrapper{
+            margin:0 auto;
+            width: 50%;
+        }
+        #message_content{
+            border:1px solid #000;
+            height: 250px;
+            overflow-y: auto;
+        }
+        .user_input_wrapper{
+
+        }
+        .user_input_wrapper .text{
+            width: 65%;
+        }
+        .user_input_wrapper .btn{
+            width: 30%;
+        }
+        
+
+    </style>
+    <script>
+        var input_content = [];
+            function add_data_content(){
+                var chat_content_tmp = "";
+                var message_content1 = document.getElementById("message_content");
+                var user_input_obj = document.getElementById("user_input");
+                var user_name_obj = document.getElementById("user_name");
+                //validation for chat_content
+                if(user_input_obj.value == ""){
+                   //alert("Please type something...")
+                   return;
+                   //if chat content is empty.execution wont go further..
+               }
+               //creating the empty object.
+                let chat_content_obj = {};
+                //adding user_name inside chat_content_obj
+                chat_content_obj.user_name = user_name_obj.value;
+                //adding content inside chat_content_obj
+                chat_content_obj.content = user_input_obj.value;
+                //adding chat_content_obj in input_content array
+                input_content.push(chat_content_obj);
+               //iterating the input_content array. 
+                for(obj in input_content){
+                    //create tmp variable for every iteration.
+                        let tmp = input_content[obj];
+                        //using tmp accessing the obj(line no39,40)
+                    chat_content_tmp += "<div><span>"+tmp.user_name+"<span><span> "+tmp.content+"<span></div>"
+                    //chat_content_tmp  += input_content[obj]+"</br>"; 
+                    //message_content1.innerHTML = message_content.innerHTML + input_content[obj];
+                }
+                // message_content1.innerHTML = input_content.toString();
+                //from chat_content_tmp ->messaga_content_div
+                document.getElementById("message_content").innerHTML = chat_content_tmp;
+                //clearing the inuput text box
+                user_input_obj.value = "";
+            }
+    </script>
+</head>
+
+<body>
+    <div class="content_wrapper">
+        <div id="message_content">
+
+        </div>
+        <div class="user_input_wrapper">
+            <input type="text" placeholder="Enter UserName" id="user_name"/>
+            <input id="user_input"  class="text" type="text" value="" placeholder="Enter Message"/>
+            <input onclick="add_data_content()" type="button" class="btn" value="Submit"/>
+        </div>
+    </div>
+</body>
+
+</html>

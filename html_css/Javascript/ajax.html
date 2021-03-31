@@ -1,0 +1,145 @@
+<html>
+    <head>
+        <script type="text/javascript">
+        function ajax_call_get(){
+            //creating http object for ajax call
+            var xhttp = new XMLHttpRequest();
+            //inner function for handling the server response
+            xhttp.onreadystatechange = function() {
+                //if readystate is 4 and status is 200 .adding the response in div
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("server_response").innerHTML = this.responseText;
+                }
+            };
+            //adding server addres and method type 
+            xhttp.open("GET", "http://localhost/sub/index.php?name=test", true);
+                //trigger the ajax with abve server config...
+            xhttp.send();
+        }        
+        function ajax_call_post(){
+            //creating http object for ajax call
+            var xhttp = new XMLHttpRequest();
+            //creating the formdata...
+            var form  = new FormData();
+            //adding below object to formdata for sending to  server
+            form.append("email","test");
+            form.append("password","test");
+            //inner function for handling the server response
+            xhttp.onreadystatechange = function() {
+                //if readystate is 4 and status is 200 .adding the response in div
+                if (this.readyState == 4 && this.status == 200) {
+                    console.log(this.responseText);
+                    document.getElementById("server_response").innerHTML = this.responseText;
+                    alert("server call completed inside response")
+                }
+            };
+            //adding server addres and method type 
+            xhttp.open("POST", "http://localhost/sub/index_post.php", true);
+                //trigger the ajax with abve server config...
+                //adding form object param in send
+             xhttp.send(form);   // xhttp.send("email=eve.holt@reqres.in&password=cityslicka");
+          //var json_data = {"first_name":"test","last_name":"last name test"};
+        //     xhttp.send(JSON.stringify(json_data));  
+             //  alert("server call completed after the call..")
+        }        
+        
+        function ajax_call_post_rest(){
+            //creating http object for ajax call
+            var xhttp = new XMLHttpRequest();
+            //creating the formdata...
+            //inner function for handling the server response
+            xhttp.onreadystatechange = function() {
+                //if readystate is 4 and status is 200 .adding the response in div
+                if (this.readyState == 4){
+                    if(this.status == 200) {
+                        console.log(this.responseText);
+                        document.getElementById("server_response").innerHTML = this.responseText;
+                        //alert("server call completed inside response")
+                     }else{
+                        //except 200 all status will handle here
+                        console.log(this.responseText);
+                        //to parse the string json to JS object
+                        var res = JSON.parse(this.responseText);
+                        alert(res.error);
+                    }
+                }
+            };
+            //adding server addres and method type 
+            xhttp.open("POST", "https://reqres.in/api/login", true);
+                //trigger the ajax with abve server config...
+                //adding form object param in send
+                //xhttp.addreq
+          
+          //var json_data = {"email":"test","password":"last name test"};
+          var json_data = {"email":"eve.holt@reqres.in","password":"cityslicka"};
+            //converting JS object to JSON object to server
+             xhttp.send(JSON.stringify(json_data));  
+             //xhttp.send(json_data)
+             //  alert("server call completed after the call..")
+        }
+        function ajax_call_post_rest_JSON_response(page_no){
+            //creating http object for ajax call
+            var xhttp = new XMLHttpRequest();
+            //creating the formdata...
+            //inner function for handling the server response
+            xhttp.onreadystatechange = function() {
+                //if readystate is 4 and status is 200 .adding the response in div
+                if (this.readyState == 4){
+                    if(this.status == 200) {
+                         console.log(this.responseText);
+                        var server_data = JSON.parse(this.responseText);
+                       //loopJSON(server_data.data);;
+                       //loopJSON("");
+                       document.getElementById("server_response").innerHTML = loopJSON(server_data.data)
+                        //alert("server call completed inside response")
+                     }else{
+                        //except 200 all status will handle here
+                        console.log(this.responseText);
+                        //to parse the string json to JS object
+                        var res = JSON.parse(this.responseText);
+                        alert(res.error);
+                    }
+                }
+            };
+            //adding server addres and method type 
+            xhttp.open("GET", "https://reqres.in/api/users?page="+page_no, true);
+             xhttp.send();  
+        } 
+        function loopJSON(data_obj){
+        if(data_obj.length == 0){
+            alert("NO users data");
+            return;
+        }     
+            var tmp = "";
+            //for (i =0;i<data_obj.lengt;i++)
+            for(obj in data_obj){
+               // console.log(data_obj[obj].avatar+" "+data_obj[obj].first_name);
+                tmp += "<div><img src='"+data_obj[obj].avatar+"' /> <span>"+data_obj[obj].first_name+"</div>";
+            }
+
+            return tmp;
+        }
+        function select_change(){
+            var page_no = document.getElementById("page_no").value;
+            ajax_call_post_rest_JSON_response(page_no);
+        }
+        </script>
+    </head>
+    <body>
+
+        <div>
+            <select onchange="select_change()" id="page_no">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+            </select>
+        </div>
+        <div id="server_response"></div>
+        
+    </body>
+    <script>
+      // ajax_call_post_rest_JSON_response(1) 
+    //    above method will happen only once on run time
+    </script>
+</html>

@@ -1,0 +1,33 @@
+<html>
+    <script type="text/javascript">
+        function addclass(){
+            var div_obj = document.getElementById("content");
+            div_obj.classList.add("bg-color")   ;
+        }
+        function removeClass(){
+            var div_obj = document.getElementById("content");
+            div_obj.classList.remove("bg-color")   ;
+        }
+function toogleClass(){
+    var div_obj = document.getElementById("content");
+     var existClass = div_obj.classList.value;
+   //  console.log(existClass.indexOf("bg-color"));
+     if(existClass.indexOf("bg-color") >= 0){
+        removeClass();
+     }else{
+         addclass();
+     }
+}
+    </script>
+    <style type="text/css">
+        .bg-color{
+            background-color: red;
+        }
+    </style>
+    <body>
+        <button onclick="addclass()">Show color </button>
+        <button onclick="removeClass()">Remove color </button>  
+        <button onclick="toogleClass()">Toogle color </button>
+        <div id="content">Sample content</div>
+    </body>
+</html>

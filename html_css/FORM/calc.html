@@ -1,0 +1,87 @@
+<html>
+<head>
+    <script type="text/javascript">
+
+ function calc(type){
+    var i1 = document.getElementById("input1").value;
+    var i2 = document.getElementById("input2").value;
+    //isNAN()->Not an NUmber->true for string;
+    if(isNaN(i1)){
+        alert("Please enter number in input1");
+        return;
+    }
+    if(isNaN(i2)){
+        alert("Please enter number  in input2");
+        return;
+    }
+    //  let i1 = parseInt(num1);
+    //  let i2 = parseInt(num2);
+    i1 = parseInt(i1);
+    i2 = parseInt(i2);
+    if(type == "add"){
+        return i1+i2;
+    }else if(type == "sub"){
+        return i1-i2;
+    }else if(type == "mul"){
+        return i1*i2;
+    }else if(type == "div"){
+        return i1/i2;
+    }else{
+        return 0;
+    }
+ }
+ function add(){
+    
+    var ans= calc("add");
+    document.getElementById('ans').innerHTML = ans;
+    console.log("addition value is ",ans);
+ }
+ function sub(){
+    var ans= calc("sub");
+    console.log("Subtraction value is ",ans);
+ }
+ function mul(){
+    var ans= calc("mul");
+    console.log("Mul value is ",ans);
+ }
+ function div(){
+    var ans= calc("div");
+    console.log("Division value is ",ans);
+ }
+
+        function checkNumber(type){
+            if(type == "i1"){
+                var i1obj = document.getElementById("input1")
+                var i1 = i1obj.value;
+                if(isNaN(i1)){
+                    alert("Please enter number in input1");
+                    i1obj.focus();
+                    return ;
+                }
+            }
+            if(type == "i2"){
+                var i2obj = document.getElementById("input2");
+                var i2 = i2obj.value;
+                if(isNaN(i2)){
+                    i2obj.focus();
+                    alert("Please enter number in input2");
+                    return ;
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <input type="text" id="input1" onblur="checkNumber('i1')" />
+    <input type="text" id="input2"  onblur="checkNumber('i2')"/>
+    <div>
+        <input type="button"  onclick="add()" value="Addition"/>
+        <input type="button" onclick="sub()" value="Subtraction"/>
+        <input type="button" onclick="mul()" value="Multiplication"/>
+        <input type="button" onclick="div()" value="Division"/>
+
+    </div>
+    <div id="ans"></div>
+    </body>
+    
+</html>

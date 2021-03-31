@@ -1,0 +1,27 @@
+<div id="header">
+    <ul  class="pages">
+      <li   ><a [ngClass]="{'active':currentMenu =='home'}" routerLink="/home">Home</a></li>
+      <li><a  [ngClass]="{'active':currentMenu =='about'}"  routerLink="/about">About us</a></li>
+      <li><a [ngClass]="{'active':currentMenu =='demo'}" href="">Demo Page</a></li>
+      <li><a  [ngClass]="{'active':currentMenu =='contact'}" href="/contact">Contact Page</a></li>
+      <li *ngIf="isLogin" ><a  (click)="logout()">Logout{{isLogin}}</a></li>
+    </ul>
+    
+    <p class="links">
+       <a href="#">Posts</a> | <a href="#">Comments</a> | <a href="#">E-mail</a>
+       <a href="#">Welcome {{username}}</a>
+      </p>
+    <h1><a href="#">ModuleMag</a></h1>
+    <div class="ad468x60">
+      <a href="">
+      <img src="../../assets/images/ad468x60.gif" alt="" /></a></div>
+    <ul class="categories">
+      <li (click)="checkUPdate()" class="f"><a href="#">Advertising </a></li>
+      <li><a href="#">Entertainment</a></li>
+      <li (click)="checkUPdate()" class="f">check update </li>
+      <li><a href="#">Fashion</a></li>
+      <li><a href="#">Lifestyle</a></li>
+      <li><a href="#">Videos</a></li>
+    </ul>
+  </div>
+  <!-- END header -->

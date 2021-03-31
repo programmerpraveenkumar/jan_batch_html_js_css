@@ -1,0 +1,11 @@
+.sample{
+    background-color: red;
+    color: #000;
+    height: 100px;
+    overflow: auto;
+    
+}
+.inline{
+    background-color: rgb(255, 0, 140);
+    color: #fff;
+}

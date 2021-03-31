@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <script type="text/javascript">
+                //sample(); var let const 
+                //below is function defin
+                var studentName = "Ram";
+                function sample(){
+                    console.log("sample output")
+                    var obj = document.getElementById("output");
+                    //concat can be done using plus(+)
+                    obj.innerHTML = "Student name is "+studentName;
+                }
+                function get_first_name(){
+                    var input_obj  = document.getElementById("city_value");
+                    //undefined   
+                    if(input_obj.value == "" || input_obj.value == undefined ){
+                           alert("Please Enter something..");
+                           return;
+                           //will stop the execution....
+                       }
+                       console.log(input_obj.value);
+                        if(input_obj.value == "chennai"){
+                            alert("You are correct!!");
+                            input_obj.value = "";//clear the input
+                        }
+                }
+
+        </script>
+
+    </head>
+    <body>
+        <div id="output">html output content</div>
+        <input type="text" id="city_value" placeholder="Enter Current city" />
+        <input onclick="get_first_name()" type="button" value="CLick me"/>
+    </body>
+    <script type="text/javascript">
+        //calling function
+       //sample();
+    </script>
+</html>

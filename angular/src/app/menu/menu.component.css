@@ -1,0 +1,12 @@
+h1{
+    background-color: blue;
+}
+
+
+ul li {
+    display: inline-block;
+    margin:0 10px;
+}
+ul li a {
+    text-decoration: none;
+}

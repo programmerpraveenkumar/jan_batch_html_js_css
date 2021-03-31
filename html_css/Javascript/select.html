@@ -1,0 +1,65 @@
+<html>
+    <head>
+        <script type="text/javascript">
+        function getRadioSelected(){
+            //below will give list of values
+            var list = document.getElementsByTagName("input")
+            for(i = 0;i<list.length;i++){
+                if(list[i].checked){
+                    console.log(list[i].checked,list[i].value);
+                }else{
+                    console.log(list[i].checked,list[i].value);
+                }
+                    
+            }
+        }
+            function getSelectValue(){
+              var val = document.getElementById("select_drop_down").value
+              if(val == ""){
+                  alert("Please select some value");
+              }
+            //   else{
+            //       alert("you have selected value "+val);
+            //   }
+                console.log(val);
+            }
+            function loadDropDown(){
+                document.getElementById("title").innerHTML= "<h1>Sample Title</h1>";
+                var dropdown_values = '<option value="">--select value--<option value="1" >One</option><option>Two </option><option>three </option><option>Four </option>'
+                document.getElementById("select_drop_down").innerHTML = dropdown_values;
+            }
+            function select_change(){
+                //getting value from selected dropdown
+               var selected_value =  document.getElementById("select_drop_down").value;
+                //assign value to textbox from above variable.
+               document.getElementById("selected_text").value = selected_value;
+                //console.log("selected option is ",selected_value);
+            } 
+        </script>
+    </head>
+    <body>
+        <div id="title"></div>
+        <select id="select_drop_down" onchange="select_change()">
+            
+        </select>
+        <input onclick="getSelectValue()" type="button" value="Click me"/>
+    
+        <input type="text" id="selected_text"/>
+
+        <div >
+        </select>
+        <div id="radio_wrapper">
+            <input type="radio"  value="Chennai" name="city"/>Chennai
+            <input type="radio" value="Madurai" name="city"/>Madurai
+        </div>
+        <h1>Select MObile Brands</h1>
+        <input type="checkbox" value="Android" name="mobile"/>Android
+        <input type="checkbox" value="Samsung" name="mobile"/>Samsung
+        <input type="checkbox" value="Iphone" name="mobile"/>Iphone
+        
+        </div>
+    </body>
+    <script>
+        loadDropDown();
+    </script>
+</html>

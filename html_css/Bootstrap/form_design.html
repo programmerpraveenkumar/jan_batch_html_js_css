@@ -1,0 +1,49 @@
+<html>
+<head>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"/>
+    <script type="text/javascript">
+function form_validation(){
+    var name  = document.getElementById("name").value;
+    var mobile  = document.getElementById("mobile").value;
+    var email  = document.getElementById("email").value;
+    if(name.length <5){
+        showError("Name should be more than 5");
+        return;
+    }
+    if(mobile.length != 10){
+        showError("Mobile Length  should be 10");
+        return;
+    }
+    if(isNaN(mobile)){
+        showError("Mobile  should be   number ");
+        return;
+    }
+    if (!/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(email)){
+        showError("Email is not valid");
+        return;
+    }
+    showError("")
+    //form submit
+}
+function showError(message){
+    if(message != "")
+        alert(message);
+    document.getElementById("error").innerHTML = message;
+}
+    </script>
+</head>
+<body>
+    <form>
+    <input type="text" class="form-control" disabled  id="name" placeholder="Enter name"/>
+    <input type="text" id="email" class="form-control"  placeholder="Enter Email"/>
+    <input type="text" id="mobile" class="form-control"  placeholder="Enter mobile"/>
+    
+    <div>
+        <input type="button" class="btn btn-primary" onclick="form_validation()" value="Submit"/>
+    </div>
+
+    </form>
+    <div id="error"></div>
+    </body>
+    
+</html>

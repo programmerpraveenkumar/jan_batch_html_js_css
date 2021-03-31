@@ -1,0 +1,77 @@
+
+<html>
+    <!--html->div,span,p...
+val->input,select,radio,checkbox,button
+
+html()->to access value
+html('some param')->inject the value
+
+val()->to get values of input elements
+val('some param')->inject value in input elements  -->
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script type="text/javascript">
+            function ajaxCall(){
+                $.ajax(
+                    {
+                        type:"GET",
+                        url: "http://localhost/sub/index.php?name=test", 
+                        success: function(result){
+                            $("#content").html(result);
+                        },
+                        error:function(result){
+                                //handling error
+                        }
+                    }
+                );
+            }
+            function ajaxCallPost(){
+                var json_data = {"email":"test","password":"last name test"};
+                $.ajax(
+                    {
+                        type:"POST",
+                        data:"name='test'&email='test email'",
+                        url: "http://localhost/sub/index_post.php", 
+                        success: function(result){
+                            $("#content").html(result);
+                        },
+                        error:function(result){
+                                //handling error
+                        }
+                    }
+                );
+            }
+            function ajaxCallPostJson(){
+               // var json_data = {"email":"test","password":"last name test"};//wrong details
+                var json_data = {"email":"eve.holt@reqres.in","password":"cityslicka"};//crct details
+                $.ajax(
+                    {
+                        headers: {  
+                          'Content-Type': 'application/json',   //If your header name has spaces or any other char not appropriate
+                        },
+                        type:"POST",
+                        data:JSON.stringify(json_data),
+                        url: "https://reqres.in/api/login", 
+                        success: function(result){
+                            console.log(result);
+                            $("#content").html("Success "+result.token);
+                        },
+                        error:function(result){
+                            console.log(result.responseJSON);
+                            $("#content").html("Error "+result.responseJSON.error);
+                                //handling error
+                        }
+                    }
+                );
+            }
+            
+        </script>
+        <style type="text/css">
+       
+        </style>
+
+    </head>
+    <body>
+        <div id="content">Sample content</div>
+    </body>
+</html>

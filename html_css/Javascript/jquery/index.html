@@ -1,0 +1,97 @@
+<html>
+    <!--html->div,span,p...
+val->input,select,radio,checkbox,button
+
+html()->to access value
+html('some param')->inject the value
+
+val()->to get values of input elements
+val('some param')->inject value in input elements  -->
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script type="text/javascript">
+        function validate_form(){
+                var name = $("#input_name").val();
+                var email= $("#input_email").val();
+                var pwd = $("#input_password").val();
+                var re_pwd = $("#input_re_password").val();
+            if(name== ""){
+                alert("name should not be empty...");
+                $("#content").html("name should not be empty");
+                return 
+            }
+            if(email == ""){
+                $("#content").html("email should not be in proper format");
+                alert("Email should not be empty...");
+                return 
+            }
+            if(pwd== ""){
+                $("#content").html("pwd should not be empty");
+                alert("pwd should not be empty...");
+                return 
+            }
+            if(re_pwd == ""){
+                $("#content").html("re-pwd  should not be empty");
+                alert("Re-pwd  should not be empty...");
+                return 
+            }
+            
+            if(re_pwd != pwd){
+                $("#content").html("re-pwd and pwd should be same");
+                alert("Re-pwd and pwd  should be same...");
+                return 
+            }
+            alert("form ready to submit..")
+            return true;
+        }
+        function enable_btn(){
+            var name = $("#input_name").val();
+            var email= $("#input_email").val();
+            var pwd = $("#input_password").val();
+            var re_pwd = $("#input_re_password").val();
+            if(name == "" || email == "" || pwd == "" || re_pwd == "" || pwd != re_pwd){
+                $("#sub_btn").prop('disabled', true);
+                $(".form").removeClass("active")
+            }else{
+                $("#sub_btn").prop('disabled',false);
+                $(".form").addClass("active");
+            }
+
+        }
+        </script>
+        <style type="text/css">
+        input#sub_btn:disabled{
+            background: #a97676;
+            color: #fff;
+        }
+        input#sub_btn{
+            background: #e00b0b;
+            color: #fff;
+        }
+        form{
+            border:1px solid red;
+        }
+        form.active{
+            border:1px solid green;
+        }
+        </style>
+
+    </head>
+    <body>
+        <div id="content">Sample content</div>
+        <form class="form">
+            <input  onblur="enable_btn()" type="text" id="input_name" placeholder="Enter name"/>
+            <input  onblur="enable_btn()" type="text" id="input_email" placeholder="Enter Email"/>
+            <input  onblur="enable_btn()" type="text" id="input_password" placeholder="Enter Password"/>
+            <input onblur="enable_btn()" type="text" id="input_re_password" placeholder="Enter Re-Password"/>
+            <input id="sub_btn" disabled type="button" value="validate" onclick="validate_form()">
+    </form>
+    <!-- <form class="form">
+        <input  type="text" id="input_name" placeholder="Enter name"/>
+        <input  type="text" id="input_email" placeholder="Enter Email"/>
+        <input  type="text" id="input_password" placeholder="Enter Password"/>
+        <input  type="text" id="input_re_password" placeholder="Enter Re-Password"/>
+        <input id="sub_btn"  type="button" value="validate" onclick="validate_form()">
+</form> -->
+    </body>
+</html>

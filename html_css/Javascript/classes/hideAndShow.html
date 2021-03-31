@@ -1,0 +1,37 @@
+<html>
+    <script type="text/javascript">
+        function addclass(){
+            var div_obj = document.getElementById("content");
+            div_obj.classList.add("active")   ;
+        }
+        function removeClass(){
+            var div_obj = document.getElementById("content");
+            div_obj.classList.remove("active")   ;
+        }
+function toogleClass(){
+    var div_obj = document.getElementById("content");
+     var existClass = div_obj.classList.value;
+     console.log(existClass.indexOf("active"));
+     if(existClass.indexOf("active") >= 0){
+        removeClass();
+     }else{
+         addclass();
+     }
+}
+    </script>
+    <style type="text/css">
+    #content{
+        display: none;
+    }
+    #content.active{
+        display: block;
+    }
+    </style>
+    <body>
+        <div class="active">Sample content</div>
+        <button onclick="addclass()">Show Content </button>
+        <button onclick="removeClass()">Hide Content </button>  
+        <button onclick="toogleClass()">Toogle Content </button>
+        <div id="content" class="">Sample content</div>
+    </body>
+</html>

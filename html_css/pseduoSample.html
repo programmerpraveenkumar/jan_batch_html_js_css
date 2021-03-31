@@ -1,0 +1,52 @@
+<html>
+<style>
+div.read_more::before{
+        content: "\"";
+    }
+    div.read_more::after{
+        content: "\"";
+        background-image: ();
+    }
+    .img{
+        width: 50%;
+        height: 50px;
+    }
+    .img img{
+        width: 100%;
+    }
+    .center_content{
+        position: relative;
+    }
+    .center_content p{
+        position: absolute;
+        top: 250%;
+        left: 40%;
+    }
+    .bg-img{
+        width: 50%;
+        float: right;
+        height: 550px;
+        background-image: url("img2.jpg");
+        color:#fff;
+        font-size: 2rem;
+    }
+</style>
+<body>
+    <div>
+        sample content
+    </div>
+    <div class="read_more">
+        sample content
+    </div>
+    <div class="img center_content" style="">
+        <img src="img.jfif"/>
+        <p >Sample title</p>
+    </div>
+    <div class="bg-img">
+       
+        <p >Sample title</p>
+    </div>
+    <div  class="img"><img src="img2.jpg"/></div>
+    
+</body>
+</html>

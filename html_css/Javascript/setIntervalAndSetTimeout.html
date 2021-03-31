@@ -1,0 +1,50 @@
+<html>
+    <!--html->div,span,p...
+settimeout->execute the function with interval only once.
+setinterval->execute the function with interval continuously... -->
+    <head>
+    
+        <script type="text/javascript">
+        //global variable for interval
+        var interval  = "";
+        var count  = 0;
+            function console_sample(){
+                count++;
+               // console.log('Sample console log..',Math.random());
+                console.log('Sample console log..',count);
+            }
+            function start_interval(){
+                count = 0;
+                //storing the setinterval in global variable.
+                interval = setInterval(console_sample,1000);  
+            }
+            function clear_interval(){
+                //clering interval from global variable
+                clearInterval(interval);
+            }
+            function parent_function(){
+                //Closures or inner function 
+                function inner_function(){
+                    console.log("from inner function..");
+                }
+                inner_function();
+                console.log("from parent function..");
+            }
+
+        //    (function(){
+        //         console.log('sample output from js')   ;
+        //     })();
+            
+            setTimeout(function(){console_sample()},1000)
+        </script>
+        <style type="text/css">
+        
+        </style>
+
+    </head>
+    <body>
+            <div id="content">Sample content</div>
+            <button onclick="start_interval()">Start interval</button>
+            <button onclick="clear_interval()">Stop interval</button>
+        </body>
+</html>

@@ -1,0 +1,57 @@
+<div class="main-wrapper">
+    <div class="top-menu">
+        <span>Create Blog</span>
+        <span>Login</span>
+        <span>Register</span>
+    </div>
+	    <section class="cta-section theme-bg-light py-5">
+		    <div class="container text-center">
+			    <h2 class="heading">DevBlog -Made For Developers</h2>
+			    <div class="intro">Welcome to blog and search blog post .</div>
+			    <form class="signup-form form-inline justify-content-center pt-3">
+                    <div class="form-group">
+                        <label class="sr-only" for="semail">Your email</label>
+                        <input type="email" id="semail" name="semail1" class="form-control mr-md-1 semail" placeholder="Enter category">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Search</button>
+                </form>
+		    </div><!--//container-->
+	    </section>
+	    <section class="blog-list px-3 py-5 p-md-5">
+		    <div class="container">
+
+
+			    <div class="item mb-5" *ngFor="let data of blogData">
+				    <div class="media">
+
+					    <img *ngIf="data.img_name =='' " class="mr-3 img-fluid post-thumb d-none d-md-flex" src="assets/images/blog/blog-post-thumb-1.jpg" alt="image">
+                        <img *ngIf="data.img_name !='' " class="mr-3 img-fluid post-thumb d-none d-md-flex"
+                         src="http://localhost:8082/static/{{data.img_name}}" alt="image">
+                       
+					    <div class="media-body">
+						    <h3 class="title mb-1"><a href="blog-post.html">{{data.title}}</a></h3>
+						    <div class="meta mb-1"><span class="date">{{data.created_date}} </span>  </div>
+						    <div class="intro">{{data.content}}</div>
+						    <a class="more-link" routerLink="/blog/{{data._id}}">Read more &rarr;</a>
+					    </div><!--//media-body-->
+				    </div><!--//media-->
+			    </div><!--//item-->
+			   
+			   
+			 
+			    
+			   
+			   
+			   
+				
+		    </div>
+	    </section>
+	    
+	    <footer class="footer text-center py-2 theme-bg-dark">
+		   
+	        <!--/* This template is released under the Creative Commons Attribution 3.0 License. Please keep the attribution link below when using for your own project. Thank you for your support. :) If you'd like to use the template without the attribution, you can buy the commercial license via our website: themes.3rdwavemedia.com */-->
+                <small class="copyright">Designed with <i class="fas fa-heart" style="color: #fb866a;"></i> by <a href="http://themes.3rdwavemedia.com" target="_blank">Xiaoying Riley</a> for developers</small>
+		   
+	    </footer>
+    
+    </div>

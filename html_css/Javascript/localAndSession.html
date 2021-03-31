@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <!-- 
+
+            localstorage->value will be stored permanently in browser until 
+                            user clears the data
+            sessionstorage->value will be deleted when user closes the browser
+
+         -->
+
+        <script type="text/javascript">
+        function localStorageSample(){
+            localStorage.setItem("token","some token in local");
+        }
+        function sessionStorageSample(){
+            sessionStorage.setItem("token","some token in session..");
+        }
+        function getLocal(){
+                console.log("local storage",localStorage.getItem("token"));
+        }function getSession(){
+            console.log("session storage ",sessionStorage.getItem("token"));
+        }
+        </script>
+
+    </head>
+    <body>
+       <button onclick="localStorageSample()">Local set </button>
+       <button onclick="getLocal()">Local get </button>
+       <button onclick="sessionStorageSample()">Session set </button>
+       <button onclick="getSession()">Session get </button>
+    </body>
+    
+</html>

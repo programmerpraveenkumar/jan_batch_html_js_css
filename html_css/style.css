@@ -1,0 +1,63 @@
+/* div{
+    background-color: red;
+} */
+
+.header{
+    background-color: red;   
+}
+
+.common_header{
+    border:1px solid blue;
+}
+.google{
+    text-decoration: none;
+    color: #000;
+    font-size: 2em;
+}
+
+.signin_wrapper{
+    background-color: #e0e0e0;
+    border: 1px solid #3e3e38;
+    width: 29%;
+    /* margin: 0 auto; */
+    text-align: center;
+    float: right;
+    border-radius: 8px;
+    margin-right: 16px;
+}
+
+.input_text{
+    width: 80%;;
+    margin-bottom:10px;
+    font-size: 1em;
+}
+.input_btn{
+    cursor: pointer;
+}
+
+.fixed_header{
+    position: fixed;
+   top:0px;
+    right: 0;
+    left:0;
+}
+/*
+display:
+    block->show or make the element block
+    none-->hide the elements
+    inline-block
+    inline
+*/
+
+.transparent{
+    display: block;
+    position:absolute;
+    top:0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    opacity: 0.5;
+    background-color: #fff;
+    text-align: center;
+}
+

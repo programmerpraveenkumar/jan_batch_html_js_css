@@ -1,0 +1,9 @@
+.top-menu{
+    float: right;
+}
+.top-menu span{
+    margin-right:15px;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+}

@@ -1,0 +1,53 @@
+.left{
+    float: left;
+}
+.right{
+    float: right;
+}
+.rel{
+    position: relative;
+}
+.abs{
+    position: absolute;
+    top:0;
+    right: 0;
+    background-color: red;
+}
+
+ul{
+    margin: 0;
+}
+.header_wrapper{
+    height: 50px;
+}
+.header_wrapper.black{
+    background-color: #000;
+}
+.header_wrapper.blue{
+    background-color: #009bdd;
+}
+
+.menu_header li{
+    font-family: sans-serif;
+    display: inline-block;
+    margin: 0 10px;
+    font-size: 1.5em;
+    padding: 10px 0;
+}
+.menu_header li a{
+    text-decoration: none;
+    color: #000;
+}
+.menu_header li a:hover{
+    color: #fff;
+}
+
+                  
+input.search_input{
+    height: 30px;
+    width: 100%;
+    border-radius: 3px;
+    /* outline: none; */
+    border: none;
+    font-size: 1em;
+}
