@@ -1,6 +1,6 @@
 <div class="main-wrapper">
     <div class="top-menu">
-        <span>Create Blog</span>
+        <span><a routerLink="create">Create Blog</a></span>
         <span>Login</span>
         <span>Register</span>
     </div>
@@ -11,16 +11,19 @@
 			    <form class="signup-form form-inline justify-content-center pt-3">
                     <div class="form-group">
                         <label class="sr-only" for="semail">Your email</label>
-                        <input type="email" id="semail" name="semail1" class="form-control mr-md-1 semail" placeholder="Enter category">
+                        <input type="text" [(ngModel)]="category_name"  name="semail1" class="form-control mr-md-1 semail" placeholder="Enter category">
                     </div>
-                    <button type="submit" class="btn btn-primary">Search</button>
+                    <button type="button" (click)="searchCategory()" class="btn btn-primary">Search</button>
                 </form>
 		    </div><!--//container-->
 	    </section>
 	    <section class="blog-list px-3 py-5 p-md-5">
 		    <div class="container">
 
-
+								<div *ngIf="blogData.length == 0">
+									<h1> No data found</h1>
+								
+								</div>
 			    <div class="item mb-5" *ngFor="let data of blogData">
 				    <div class="media">
 
@@ -29,17 +32,18 @@
                          src="http://localhost:8082/static/{{data.img_name}}" alt="image">
                        
 					    <div class="media-body">
-						    <h3 class="title mb-1"><a href="blog-post.html">{{data.title}}</a></h3>
-						    <div class="meta mb-1"><span class="date">{{data.created_date}} </span>  </div>
-						    <div class="intro">{{data.content}}</div>
+						    <h3 class="title mb-1"><a  routerLink="/blog/{{data._id}}">{{data.title}}</a></h3>
+						    <div class="meta mb-1"><span class="date">{{data.created_date   | date}} </span>  </div>
+						    <div class="intro">{{data.content.substr(0,100)}}</div>
 						    <a class="more-link" routerLink="/blog/{{data._id}}">Read more &rarr;</a>
-					    </div><!--//media-body-->
+					    <!-- a href=""/> -->
+						</div><!--//media-body-->
 				    </div><!--//media-->
 			    </div><!--//item-->
-			   
-			   
-			 
-			    
+				<div>
+					<input type="button" (click)="pagination('prev')" value="Previous"/>
+					<input type="button" (click)="pagination('next')" value="Next"/>
+				</div>
 			   
 			   
 			   

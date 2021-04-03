@@ -9,13 +9,11 @@ var blogs = require('./blogs');
 var jwt = require("jsonwebtoken");
 var multer  = require('multer');
 app.use(express.json());
+var cors = require('cors');
+app.use(cors());
+
 app.use('/animal',animals);
 app.use('/blog',blogs);
-app.use('/blog',function(req,res){
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Request-Method', '*');
-    res.setHeader('Access-Control-Allow-Headers', '*');
-});
 app.use('/static',express.static("uploads/"));
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {

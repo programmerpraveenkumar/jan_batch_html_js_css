@@ -4,6 +4,7 @@ var MongoClient = require('mongodb').MongoClient;
 var ObjectId = require('mongodb').ObjectId;
 var url = "mongodb://localhost:27017/fitasample";
 //var app = express();
+
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
        // console.log("samle file uploda");
@@ -53,9 +54,25 @@ router.get("/get",function(req,res){
        let queryData = { };
         dbo.collection("blog_content").find(queryData).toArray(function(err,db_res){
             console.log(db_res);
-            res.setHeader('Access-Control-Allow-Origin', '*');
-            res.setHeader('Access-Control-Request-Method', '*');
-            res.setHeader('Access-Control-Allow-Headers', '*');
+            res.writeHead("200",{"Content-type":"application/json"});
+            res.end(JSON.stringify(db_res));
+        })
+})
+})
+router.get("/get/pagination",function(req,res){
+    let query_param = req.query;
+    let page_no = req.query.page_no;
+    if(page_no == ""){
+        page_no = 0;
+    }else {
+        //sub tract -1;
+        page_no = parseInt(page_no)*2;
+    }
+    MongoClient.connect(url,  { useUnifiedTopology: true },function(err, db) {
+        var dbo =  db.db("fitasample");
+       let queryData = {}
+        dbo.collection("blog_content").find(queryData).skip(page_no).limit(2).toArray(function(err,db_res){
+            console.log(db_res);
             res.writeHead("200",{"Content-type":"application/json"});
             res.end(JSON.stringify(db_res));
         })
@@ -73,9 +90,7 @@ router.get("/get/id",function(req,res){
         dbo.collection("blog_content").findOne(queryData,function(err,db_res){
           
             console.log(db_res);
-            res.setHeader('Access-Control-Allow-Origin', '*');
-            res.setHeader('Access-Control-Request-Method', '*');
-            res.setHeader('Access-Control-Allow-Headers', '*');
+           
             res.writeHead("200",{"Content-type":"application/json"});
             res.end(JSON.stringify(db_res));
         })
@@ -87,7 +102,7 @@ router.get("/get/category",function(req,res){
     MongoClient.connect(url,  { useUnifiedTopology: true },function(err, db) {
         var dbo =  db.db("fitasample");
        let queryData = {
-           "category":category
+           "category":new RegExp("^"+category+"")
        }
        console.log(queryData);
         dbo.collection("blog_content").find(queryData).toArray(function(err,dbres){

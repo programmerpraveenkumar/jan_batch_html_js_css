@@ -48,11 +48,11 @@ import { HelperService } from '../helper.service';
         this.posts = response;
        // console.log(response);
       })
-      // this.helper.getMethod ("https://jsonplaceholder.typicode.com/posts/").subscribe(
-      //   response=>{
-      //     this.posts = response;
-      //    // console.log(response);
-      //   })
+      this.helper.getMethod ("https://jsonplaceholder.typicode.com/posts/").subscribe(
+        response=>{
+          this.posts = response;
+         // console.log(response);
+        })
       //   this.helper.getMethod ("../../assets/customer.json").subscribe(
       //     response=>{
       //       this.customerDetails = response;

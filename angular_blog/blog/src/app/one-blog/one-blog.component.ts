@@ -7,10 +7,10 @@ import { BlogService } from '../blog.service';
   styleUrls: ['./one-blog.component.css']
 })
 export class OneBlogComponent implements OnInit {
-
+serverRes:any;
   constructor(private routerObj: ActivatedRoute,private blog:BlogService) {
     this.routerObj.params.subscribe(pathParamObj=>{
-      console.log(pathParamObj)
+     // console.log(pathParamObj)
         this.getBlogContent(pathParamObj.id);
   
        })
@@ -22,6 +22,7 @@ export class OneBlogComponent implements OnInit {
   getBlogContent(blogId){
     this.blog.get("blog/get/id?id="+blogId).subscribe((res:any)=>{
       console.log(res);
+      this.serverRes = res;
     })
   }
 

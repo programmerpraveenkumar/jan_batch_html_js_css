@@ -1,1 +1,21 @@
-<p>create-post works!</p>
+<article class="blog-post px-3 py-5 p-md-5">
+    <div class="container">
+       
+       
+        <div class="blog-post-body">
+            <div class="form-wrapper">
+                <h1>Post For BLOG</h1>
+              <div><input class="input" [(ngModel)]="title" type="text" placeholder="Enter title" /></div>
+              <div> <textarea class="input"  [(ngModel)]="content"  placeholder="Enter message"></textarea></div>
+              <div><input class="input" (change)="selectFile($event.target.files)" type="file"/></div>
+
+              
+             
+              
+              <input class="input"  type="button" (click)="savePost()" Value="Post Blog"/>
+            </div>
+        </div>
+       
+        </div>
+</article>
+            

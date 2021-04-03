@@ -1,0 +1,13 @@
+<div
+class="search-results"
+infiniteScroll
+[infiniteScrollDistance]="2"
+[infiniteScrollThrottle]="50" 
+(scrolled)="onScroll()"
+[scrollWindow]="false">
+    <div *ngFor="let data of dataArray">
+        {{data.name}}
+    </div>
+</div>
+<div [innerHTML]="htmlData"></div>
+<!-- <div  >{{htmlData}}</div> -->
